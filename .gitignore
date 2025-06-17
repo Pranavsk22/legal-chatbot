@@ -1,0 +1,6 @@
+venv/
+.env
+__pycache__/
+*.pyc
+retriever/legal_index.faiss
+retriever/legal_docs.pkl
