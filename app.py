@@ -22,7 +22,8 @@ def load_retriever():
     from sentence_transformers import SentenceTransformer
     import faiss, pickle
 
-    model = SentenceTransformer("all-MiniLM-L6-v2")
+    #model = SentenceTransformer("all-MiniLM-L6-v2")
+    model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
 
     index = faiss.read_index("retriever/legal_index.faiss")
     with open("retriever/legal_docs.pkl", "rb") as f:
