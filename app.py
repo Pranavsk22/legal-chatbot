@@ -30,10 +30,10 @@ def load_retriever():
     return model, index, docs
 
 
-@st.cache_resource(show_spinner=False)
+#@st.cache_resource(show_spinner=False)
 def load_groq():
-    from groq import Groq
-    return Groq(api_key=GROQ_API_KEY)
+    from groq import GroqClient
+    return GroqClient(api_key=GROQ_API_KEY)
 
 
 # ───────────────────────────────
