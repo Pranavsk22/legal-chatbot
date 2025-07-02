@@ -11,7 +11,7 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 
 # Optional debug: confirm key
-st.write("🔑 GROQ key loaded:", GROQ_API_KEY[:6] + "…" if GROQ_API_KEY else "❌ MISSING")
+#st.write("🔑 GROQ key loaded:", GROQ_API_KEY[:6] + "…" if GROQ_API_KEY else "❌ MISSING")
 # ───────────────────────────────
 # ───────────────────────────────
 # Lazy‑load heavy stuff
