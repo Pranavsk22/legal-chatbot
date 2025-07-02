@@ -15,7 +15,7 @@ st.write("🔑 GROQ key loaded:", GROQ_API_KEY[:6] + "…" if GROQ_API_KEY else
 # ───────────────────────────────
 # Lazy‑load heavy stuff
 # ───────────────────────────────
-@st.cache_resource(show_spinner=False)
+#@st.cache_resource(show_spinner=False)
 def load_retriever():
     from sentence_transformers import SentenceTransformer
     import faiss, pickle
