@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-import openai
+from groq import Groq
 
 # Must be the first Streamlit command
 st.set_page_config(page_title="⚖️ Indian Legal Chatbot", layout="centered")
@@ -32,13 +32,8 @@ def load_retriever():
 
 
 #@st.cache_resource(show_spinner=False)
-def load_openai():
-
-    return openai.OpenAI(
-        base_url="https://api.groq.com/openai/v1",
-        api_key=GROQ_API_KEY,
-    )
-
+def load_groq():
+    return Groq(api_key=GROQ_API_KEY)
 
 # ───────────────────────────────
 # 4. Helper functions
@@ -75,7 +70,7 @@ if query:
     st.info("⚙️ Model loading the first time may take ~10 sec…")
     with st.spinner("Thinking like a lawyer…"):
         model, index, docs = load_retriever()
-        client = load_openai()
+        client = load_groq()
 
         chunks = retrieve_context(model, index, docs, query)
         answer = generate_answer(client, chunks, query)
