@@ -2,21 +2,18 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-# ───────────────────────────────
-# 1. ENV & API key
-# ───────────────────────────────
-load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-st.write("🔑 GROQ key loaded:", GROQ_API_KEY[:6] + "…" if GROQ_API_KEY else "❌ MISSING")
-
-# ───────────────────────────────
-# 2. Page config
-# ───────────────────────────────
+# Must be the first Streamlit command
 st.set_page_config(page_title="⚖️ Indian Legal Chatbot", layout="centered")
 st.title("🧑‍⚖️ AI Legal Assistant (India)")
+# ENV loading
+load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 
+# Optional debug: confirm key
+st.write("🔑 GROQ key loaded:", GROQ_API_KEY[:6] + "…" if GROQ_API_KEY else "❌ MISSING")
 # ───────────────────────────────
-# 3. Lazy‑load heavy stuff
+# ───────────────────────────────
+# Lazy‑load heavy stuff
 # ───────────────────────────────
 @st.cache_resource(show_spinner=False)
 def load_retriever():
